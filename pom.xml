@@ -8,10 +8,144 @@
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.ds</groupId>
-    <artifactId>dsalgo</artifactId>
+    <packaging>jar</packaging>
+    <groupId>com.github.piyushpriyadarshi</groupId>
+    <artifactId>javautility</artifactId>
     <version>0.1</version>
+    <repositories>
+        <repository>
+            <id>mvnrepository</id>
+            <url>http://mvnrepository.com/artifact/</url>
+        </repository>
+    </repositories>
+    <name>JavaUtility</name>
+    <description>Java Utility is a library implementing all the datatstructure and algorithms in Java. It try to reduces the application development time .</description>
+    <url>https://github.com/piyushpriyadarshi/datastructure</url>
 
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+<!--                    <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>-->
+                    <javadocExecutable>/usr/lib/jvm/java-8-openjdk-amd64/bin</javadocExecutable>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+            </plugin>
+
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.3.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.3.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.3.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <scm>
+        <connection>scm:git:git://github.com/piyushpriyadarshi/datastructure.git</connection>
+        <developerConnection>scm:git:ssh://github.com:piyushpriyadarshi/datastructure.git</developerConnection>
+        <url>http://github.com/piyushpriyadarshi/datastructure/tree/master</url>
+    </scm>
+    <developers>
+        <developer>
+            <name>Piyush Priyadarshi</name>
+            <email>priyadarship85@gmail.com</email>
+            <organization>Self</organization>
+            <organizationUrl>http://www.piyushpriyadarshi.com</organizationUrl>
+        </developer>
+    </developers>
 
 </project>
