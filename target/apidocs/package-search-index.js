@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.ds"},{"l":"com.ds.array"},{"l":"com.ds.math"},{"l":"com.ds.search"},{"l":"com.ds.stack"}]
